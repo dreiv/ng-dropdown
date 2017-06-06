@@ -1,0 +1,8 @@
+:host {
+  border: 1px solid black;
+}
+
+button {
+  border: none;
+  background: transparent;
+}
