@@ -4,13 +4,12 @@
 
 .container {
   position: relative;
-  border: solid black;
   border-width: 1px 1px 0;
+  border-style: solid;
+  border-color: black;
   display: inline-block;
-  bottom: -1px;
   z-index: 10;
   background: white;
-  width: 100%;
 }
 
 button {
@@ -22,8 +21,9 @@ ul {
   position: absolute;
   background: white;
   border: 1px solid black;
-  margin: 0;
+  margin-top: -1px;
   list-style: none;
   min-width: calc(100% - 2px);
-  padding:0;
+  padding: 0;
+  margin-bottom: 0;
 }
