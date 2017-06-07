@@ -1,8 +1,29 @@
 :host {
-  border: 1px solid black;
+  position: relative;
+}
+
+.container {
+  position: relative;
+  border: solid black;
+  border-width: 1px 1px 0;
+  display: inline-block;
+  bottom: -1px;
+  z-index: 10;
+  background: white;
+  width: 100%;
 }
 
 button {
   border: none;
   background: transparent;
+}
+
+ul {
+  position: absolute;
+  background: white;
+  border: 1px solid black;
+  margin: 0;
+  list-style: none;
+  min-width: calc(100% - 2px);
+  padding:0;
 }
