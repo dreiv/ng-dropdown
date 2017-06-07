@@ -1,12 +1,11 @@
 :host {
   position: relative;
+  display: block; /* you will have to change this */
 }
 
 .container {
   position: relative;
-  border-width: 1px 1px 0;
-  border-style: solid;
-  border-color: black;
+  border: 1px solid black;
   display: inline-block;
   z-index: 10;
   background: white;
@@ -23,7 +22,21 @@ ul {
   border: 1px solid black;
   margin-top: -1px;
   list-style: none;
-  min-width: calc(100% - 2px);
+  max-width: calc(100% - 2px);
   padding: 0;
   margin-bottom: 0;
+
+  display: none;
+}
+
+:host(.open) ul {
+  display: inherit;
+}
+
+:host(.open) .container {
+  border-width: 1px 1px 0;
+  border-style: solid;
+  border-color: black;
+  border-bottom: none;
+  padding-bottom: 1px;
 }
