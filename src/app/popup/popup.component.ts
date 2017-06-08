@@ -20,7 +20,6 @@ export class PopupComponent {
       this.clickSub = Observable.fromEvent(window, 'click')
         .subscribe((event: Event) => {
           if (!this.elementRef.nativeElement.contains(event.target)) {
-            console.log('triggered!');
             this.open = false;
             this.clickSub.unsubscribe();
           }
