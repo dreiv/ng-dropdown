@@ -25,11 +25,11 @@ ul {
   display: none;
 }
 
-:host(.open) ul {
+:host(.active) ul {
   display: block;
 }
 
-:host(.open) .container {
+:host(.active) .container {
   border-width: 1px 1px 0;
   border-style: solid;
   border-color: black;

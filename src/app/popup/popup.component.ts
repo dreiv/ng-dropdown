@@ -1,5 +1,4 @@
-import {Component, ElementRef, HostBinding} from '@angular/core';
-import {Observable, Subscription} from "rxjs/rx";
+import {Component, HostBinding, HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-popup',
@@ -7,27 +6,31 @@ import {Observable, Subscription} from "rxjs/rx";
   styleUrls: ['./popup.component.css'],
 })
 export class PopupComponent {
-  @HostBinding('class.open') open;
-  private clickSub: Subscription;
+  @HostBinding('class.active') active;
 
-  constructor(private elementRef: ElementRef) {
+  constructor() {}
+
+  /** Toggles the categories select panel between open and closed. */
+  toggle(): void {
+    this.active ? this.close() : this.open();
   }
 
-  toggleList() {
-    this.open = !this.open;
-
-    if (this.open) {
-      this.clickSub = Observable.fromEvent(window, 'click')
-        .subscribe((event: Event) => {
-          if (!this.elementRef.nativeElement.contains(event.target)) {
-            this.open = false;
-            this.clickSub.unsubscribe();
-          }
-        })
-    } else {
-      if (this.clickSub) {
-        this.clickSub.unsubscribe();
-      }
+  /** Opens the categories select panel. */
+  open(): void {
+    if (!this.active) {
+      this.active = !this.active;
     }
+  }
+
+  /** Closes the categories select panel. */
+  close(): void {
+    if (this.active) {
+      this.active = !this.active;
+    }
+  }
+
+  @HostListener('focusout', ['$event'])
+  private onFocusOut(): void {
+    this.close();
   }
 }
